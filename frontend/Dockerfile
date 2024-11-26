@@ -10,6 +10,8 @@ RUN npm install
 COPY . .
 # Build the application for production
 RUN npm run build
+# List the contents of the /app directory to verify the build output
+RUN ls -la /app
 
 # Use an official Nginx image to serve the application
 FROM nginx:alpine
@@ -21,4 +23,3 @@ RUN sed -i 's/80/8080/g' /etc/nginx/conf.d/default.conf
 EXPOSE 8080
 # Start Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
-
