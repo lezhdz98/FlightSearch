@@ -10,6 +10,8 @@ RUN npm install
 COPY . .
 # Build the application for production
 RUN npm run build
+# Run tests
+RUN npm test
 # List the contents of the /app directory to verify the build output
 RUN ls -la /app
 
