@@ -18,42 +18,59 @@ The project uses Java with Spring Boot for the backend and React with TypeScript
 
 ## Requirements
 
-- Node.js
-- npm
-- Java JDK (version 22.0.2)
-- Gradle (version 8.10.2)
+- Docker
+- Docker Compose
 
 ## Installation
 
-### Backend
+### Using Docker
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/lezhdz98/FlightSearch.git
    ```
-2. Navigate to the backend directory:
+2. Navigate to the project directory:
    ```bash
-   cd your-repository/backend
+   cd FlightSearch
    ```
-3. Build and run the project:
+
+### Backend
+
+1. Navigate to the backend directory:
    ```bash
-   ./gradlew bootRun
+   cd backend
+   ```
+2. Build the project using Gradle:
+   ```bash
+   ./gradlew build
+   ```
+3. Build the Docker image:
+   ```bash
+   docker build -t my-backend .
    ```
 
 ### Frontend
 
 1. Navigate to the frontend directory:
    ```bash
-   cd your-repository/frontend
+   cd ../frontend
    ```
-2. Install the dependencies:
+2. Build the Docker image:
    ```bash
-   npm install
+   docker build -t my-frontend .
    ```
-3. Run the application:
+
+### Running the Application
+
+1. Navigate back to the root directory of the project:
    ```bash
-   npm start
+   cd ..
    ```
+2. Build and run the containers using Docker Compose:
+   ```bash
+   docker-compose up --build
+   ```
+3. Open your web browser and go to http://localhost:8080/ to see the web application.
 
 ## Testing
 
@@ -62,7 +79,7 @@ The project uses Java with Spring Boot for the backend and React with TypeScript
 To run the backend unit tests, use the following command:
 
 ```bash
-./gradlew test
+docker-compose run backend ./gradlew test
 ```
 
 ### Frontend
@@ -70,6 +87,5 @@ To run the backend unit tests, use the following command:
 To run the frontend unit tests, use the following command:
 
 ```bash
-npm test
+docker-compose run frontend npm test
 ```
-
