@@ -12,6 +12,8 @@ COPY . .
 RUN npm run build
 # List the contents of the /app directory to verify the build output
 RUN ls -la /app
+# List the contents of the /app/dist directory to verify the build output
+RUN ls -la /app/dist
 
 # Use an official Nginx image to serve the application
 FROM nginx:alpine
