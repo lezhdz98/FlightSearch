@@ -76,16 +76,16 @@ The project uses Java with Spring Boot for the backend and React with TypeScript
 
 ### Backend
 
-To run the backend unit tests, use the following command:
+To run the backend unit tests, use the following commands:
 
 ```bash
-docker-compose run backend ./gradlew test
+cd backend
+```
+
+```bash
+./gradlew test
 ```
 
 ### Frontend
 
-To run the frontend unit tests, use the following command:
-
-```bash
-docker-compose run frontend npm test
-```
+The test are build in the Dockerfile when you create the image.
